@@ -1,0 +1,90 @@
+SIGNOZ.IO
+
+This document provides an analysis of the <SIGNOZ.IO> project, including its key features, architecture, current usage, technical details, and any other relevant information.
+
+Introduction
+SigNoz is an open-source application performance monitoring tool that helps you monitor your applications and troubleshoot problems. SigNoz uses distributed tracing to gain visibility into your software stack.
+
+With SigNoz, you can do the following:
+•	Monitor application metrics such as latency, requests per second, error rates
+•	Monitor infrastructure metrics such as CPU utilization or memory usage
+•	Track user requests across services
+•	Set alerts on metrics
+•	Find the root cause of the problem by going to the exact traces which are causing the problem
+•	See detailed flame graphs of individual request traces
+
+How Does SigNoz Work?
+SigNoz collects data using OpenTelemetry, an open-source observability solution. Therefore, SigNoz supports all the frameworks and languages supported by OpenTelemetry. You can find the complete list of supported languages on the Instrumentation page of the OpenTelemetry documentation.
+Then, SigNoz aggregates all the collected data, and you use the dashboard to see all the metrics and traces related to your application.
+SigNoz includes the following components:
+•	OpenTelemetry Collector: Collects telemetry data from your services and applications.
+•	ClickHouse: An open-source, high performance columnar OLAP database management system.
+•	Query Service: The interface between the front-end and ClickHouse
+•	Frontend: The user interface, built in ReactJS and TypeScript.
+
+Project Summary
+
+Website	https://signoz.io/
+
+Organization/Foundation Name	Signoz
+License	Apache License 2.0
+Open/Proprietary	Open Source
+Source Path(if open source)	https://github.com/SigNoz/signoz
+Brief Description	Signoz is an open-source observability platform for monitoring and troubleshooting applications. It provides tracing, metrics, and logs for microservices and distributed systems.
+
+
+
+
+Project Details
+Key Features
+•	Distributed tracing for microservices
+•	Metrics collection and visualization
+•	Log collection and visualization
+•	Alerting and notification capabilities
+•	High availability and scalability
+
+Architecture
+Signoz has a distributed architecture consisting of several components, including a tracing agent, collector, query, and UI. The agent collects traces from the application code and sends them to the collector. The collector stores traces in a database and provides query and visualization capabilities. The UI allows users to view and analyze traces, metrics, and logs.
+
+ 
+
+Architecture Components
+•	SigNoz OpenTelemetry Collector
+•	ClickHouse
+•	Query Service
+•	Frontend
+•	Alert Manager
+OpenTelemetry Collector can receive data in multiple formats. Here are some of the commonly used receivers:
+•	Jaeger Receiver
+•	Kafka Receiver
+•	OpenCensus Receiver
+•	OTLP Receiver
+•	Zipkin Receiver
+•	One can send data from their applications directly to SigNoz Otel collector or external otel collectors can be used for collecting telemetry data & sending to SigNoz otel collector. These external otel collectors are then working effectively as an agent to collect data first and then send to SigNoz Otel collector.
+•	Query Service is the interface between Frontend and ClickHouse. It provides APIs to be consumed by frontend application and queries ClickHouse to fetch data and processes data before responding back to the frontend.
+•	Frontend is the UI, built in ReactJS and Typescript and provides advanced trace/span filtering capabilities and plot metrics to provide service overviews.
+•	Alert Manager evaluates different alert rules set by the users and triggers an alert if a threshold is crossed.
+
+
+Current Usage
+Several organizations are using Signoz, including Ola Cabs, Razorpay, and OLX.
+Technical Details
+•	Signoz is designed for high availability and can handle a large volume of data.
+•	It uses open standards such as OpenTelemetry and Jaeger for tracing and Prometheus for metrics.
+•	It supports multiple storage backends such as Cassandra and Elasticsearch.
+•	Signoz can be deployed on-premise or on the cloud.
+
+
+Project comparison
+Signoz is comparable to other observability platforms such as Jaeger, Zipkin, and Prometheus. However, Signoz offers a more comprehensive set of features, including metrics and logs, in addition to distributed tracing.
+Any other information
+Signoz has an active community of contributors and users, and new features are regularly added to the project.
+Reference / Acknowledgements
+•	https://signoz.io/
+•	https://github.com/SigNoz/signoz
+•	Apache License 2.0: http://www.apache.org/licenses/LICENSE-2.0
+•	Signoz Community: https://github.com/SigNoz/signoz/blob/main/CONTRIBUTING.md#community
+•	OpenTelemetry: https://opentelemetry.io/
+•	Jaeger: https://www.jaegertracing.io/
+•	Prometheus: https://prometheus.io/
+
